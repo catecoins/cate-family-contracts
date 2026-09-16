@@ -1,0 +1,8 @@
+{
+  "chainId": 56,
+  "curveLaunchpad": "0x797dbB2c6c53E04eBa53B8962E00920Fcff80e96",
+  "curveLocker": "0xadf8745082D94F7b6CA4E987252d4944Ec2D36fe",
+  "curveDistributorFactory": "0x6B03BEbE3a9a89B88A6aC24B3b41d6906b6C1816",
+  "feeRouter": "0x5b2C96d38Bce04B2f3c636aD0A9AfBce6582AEB0",
+  "curveDeployedAtBlock": 122009291
+}

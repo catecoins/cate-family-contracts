@@ -1,0 +1,38 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.26"
+optimizer = true
+optimizer_runs = 800
+via_ir = true
+evm_version = "cancun"
+fs_permissions = [{ access = "read-write", path = "./deployments" }]
+
+[profile.default.fuzz]
+runs = 256
+
+[rpc_endpoints]
+bsc = "https://bsc-mainnet.public.blastapi.io"
+bsc_testnet = "https://data-seed-prebsc-1-s1.binance.org:8545"
+opbnb = "https://opbnb-mainnet-rpc.bnbchain.org"
+opbnb_testnet = "https://opbnb-testnet-rpc.bnbchain.org"
+
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+
+# Stateful invariant runs drive real PancakeSwap on a fork, so every call is an
+# RPC round trip. Kept modest so `forge test` stays usable locally; CI can raise
+# it with FOUNDRY_INVARIANT_RUNS.
+[profile.default.invariant]
+runs = 8
+depth = 24
+fail_on_revert = false
+
+# The linter runs on demand (`forge lint`), not on every build: nearly every
+# note it raises is in tests that ignore a return value or call in a loop on
+# purpose, and it buried the compiler output during the deployment dry run.
+[lint]
+lint_on_build = false
